@@ -113,7 +113,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -248,7 +248,7 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
+  require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -334,6 +334,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  },
   defaults = {
     mappings = {
       i = {
@@ -561,9 +566,10 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
+  eslint = {},
   rust_analyzer = {
     ["rust-analyzer"] = {
-        check = {
+      check = {
         command = "clippy",
       },
     },
@@ -632,24 +638,24 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-  --   ['<Tab>'] = cmp.mapping(function(fallback)
-  --     if cmp.visible() then
-  --       cmp.select_next_item()
-  --     elseif luasnip.expand_or_locally_jumpable() then
-  --       luasnip.expand_or_jump()
-  --     else
-  --       fallback()
-  --     end
-  --   end, { 'i', 's' }),
-  --   ['<S-Tab>'] = cmp.mapping(function(fallback)
-  --     if cmp.visible() then
-  --       cmp.select_prev_item()
-  --     elseif luasnip.locally_jumpable(-1) then
-  --       luasnip.jump(-1)
-  --     else
-  --       fallback()
-  --     end
-  --   end, { 'i', 's' }),
+    --   ['<Tab>'] = cmp.mapping(function(fallback)
+    --     if cmp.visible() then
+    --       cmp.select_next_item()
+    --     elseif luasnip.expand_or_locally_jumpable() then
+    --       luasnip.expand_or_jump()
+    --     else
+    --       fallback()
+    --     end
+    --   end, { 'i', 's' }),
+    --   ['<S-Tab>'] = cmp.mapping(function(fallback)
+    --     if cmp.visible() then
+    --       cmp.select_prev_item()
+    --     elseif luasnip.locally_jumpable(-1) then
+    --       luasnip.jump(-1)
+    --     else
+    --       fallback()
+    --     end
+    --   end, { 'i', 's' }),
   },
   sources = {
     { name = 'nvim_lsp' },
@@ -663,8 +669,11 @@ cmp.setup {
 vim.cmd('Alpha')
 
 
--- Copilot
+-- Leap
+require('leap').add_default_mappings()
 
+
+-- Cursor
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`
