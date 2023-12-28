@@ -566,7 +566,6 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  eslint = {},
   rust_analyzer = {
     ["rust-analyzer"] = {
       check = {
@@ -575,6 +574,9 @@ local servers = {
     },
   },
   tsserver = {},
+  astro = {},
+  eslint_d = {},
+  prettierd = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
