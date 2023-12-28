@@ -674,9 +674,5 @@ vim.cmd('Alpha')
 -- Leap
 require('leap').add_default_mappings()
 
-
--- Cursor
-
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
