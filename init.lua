@@ -195,9 +195,9 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
+        icons_enabled = true,
+        theme = 'catppuccin-macchiato',
+        component_separators = ' ',
         section_separators = '',
       },
     },
@@ -272,6 +272,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.relativenumber = true
+vim.wo.number = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -577,6 +578,7 @@ local servers = {
   astro = {},
   eslint_d = {},
   prettierd = {},
+  svelte = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
