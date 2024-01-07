@@ -266,7 +266,6 @@ require('lazy').setup({
 
 -- Theme
 vim.cmd.colorscheme "catppuccin-macchiato"
-
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -424,10 +423,10 @@ vim.keymap.set('n', '<leader>o', ':Neotree<cr>', { desc = 'Open neotree' })
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'svelte' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
 
     highlight = { enable = true },
     indent = { enable = true },
@@ -567,6 +566,7 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
+  ocamllsp = {},
   rust_analyzer = {
     ["rust-analyzer"] = {
       check = {
@@ -576,9 +576,9 @@ local servers = {
   },
   tsserver = {},
   astro = {},
-  eslint_d = {},
-  prettierd = {},
-  svelte = {},
+  svelte = {
+    filetypes = { 'svelte' }
+  },
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
