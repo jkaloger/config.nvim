@@ -185,6 +185,10 @@ require('lazy').setup({
 
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
+
+
+        -- Map
+        map('n', '<leader>m', ':MinimapToggle<CR>', { desc = 'toggle minimap' })
       end,
     },
   },
@@ -196,7 +200,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'catppuccin-macchiato',
+        theme = 'kanagawa',
         component_separators = ' ',
         section_separators = '',
       },
@@ -265,7 +269,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Theme
-vim.cmd.colorscheme "catppuccin-macchiato"
+vim.cmd.colorscheme "kanagawa"
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -416,6 +420,7 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>o', ':Neotree<cr>', { desc = 'Open neotree' })
+vim.keymap.set('n', '<leader>tt', ':TroubleToggle<cr>', { desc = 'Toggle trouble' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -669,12 +674,16 @@ cmp.setup {
 }
 
 
--- Alpha
-vim.cmd('Alpha')
-
 
 -- Leap
 require('leap').add_default_mappings()
+
+-- Minimap
+vim.cmd('Minimap')
+vim.cmd('MinimapRefresh')
+
+-- Alpha
+vim.cmd('Alpha')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
