@@ -421,6 +421,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>o', ':Neotree<cr>', { desc = 'Open neotree' })
 vim.keymap.set('n', '<leader>tt', ':TroubleToggle<cr>', { desc = 'Toggle trouble' })
+vim.keymap.set('n', '<leader>cl', ':CloakToggle<cr>', { desc = 'Toggle cloak' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -679,8 +680,8 @@ cmp.setup {
 require('leap').add_default_mappings()
 
 -- Minimap
-vim.cmd('Minimap')
-vim.cmd('MinimapRefresh')
+-- vim.cmd('Minimap')
+-- vim.cmd('MinimapRefresh')
 
 -- Alpha
 vim.cmd('Alpha')
